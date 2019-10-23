@@ -1,0 +1,16 @@
+<div class="search-container border-radius">
+    <p>
+        <input type="text" [(ngModel)]="searchTerm" class="border-radius" placeholder="Type username" />
+        <button type="button" class="primary border-radius" (click)="search()" [disabled]="!searchTerm">Go</button>
+        <button type="button" (click)="clearSearch()" class="border-radius">Clear</button>
+    </p>
+    <p>
+        <input type="text" [(ngModel)]="filterTerm" class="border-radius" (keyup)="filterMethod()" placeholder="Enter Some Keywords" />
+        <button type="button" (click)="clearFilterTerm()" class="border-radius">Clear</button>
+    </p>
+    <ul>
+        <li *ngFor="let result of results">
+            <a [class.my-class]="filterTerm==result.name" [href]=result.url target="_blank">{{result.name}}</a>
+        </li>
+    </ul>
+</div>
